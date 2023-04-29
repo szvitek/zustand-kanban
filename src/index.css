@@ -3,10 +3,14 @@
   --COLOR-GRAY-DARK: #222222;
   --COLOR-GRAY-LIGHT: #cccccc;
   --COLOR-ONGOING: #98c1d9;
-  --COLOR-DARK: #ee6c4d;
+  --COLOR-DONE: #ee6c4d;
   font-family: Helvetica;
 }
 
 body {
   margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
