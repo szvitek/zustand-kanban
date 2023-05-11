@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { devtools } from 'zustand/middleware';
 
 const store = (set) => ({
   tasks: [
@@ -9,7 +10,11 @@ const store = (set) => ({
   ],
   draggedTask: null,
   addTask: (title, state) =>
-    set((store) => ({ tasks: [...store.tasks, { title, state }] })),
+    set(
+      (store) => ({ tasks: [...store.tasks, { title, state }] }),
+      false, // replace whole store, or just manipulate the current one
+      'addTask' // label
+    ),
   deleteTask: (title) =>
     set((store) => ({
       tasks: store.tasks.filter((task) => task.title !== title),
@@ -23,4 +28,4 @@ const store = (set) => ({
     })),
 });
 
-export const useStore = create(store);
+export const useStore = create(devtools(store));
