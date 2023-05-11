@@ -1,6 +1,18 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
+/*
+  extras:
+  - methods can be async
+  - use immer (mutate state logic in place)
+    set(
+      produce((store) => {
+        store.tasks.push({ title, state })
+      })
+  - subscribe
+  )
+*/
+
 const store = (set) => ({
   tasks: [],
   draggedTask: null,
